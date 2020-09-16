@@ -1,0 +1,58 @@
+SELECT *
+FROM studenti;
+
+#site studenti koi se vikaat darko ili imaat email na outlook
+
+SELECT *
+FROM studenti
+WHERE
+	name = 'Darko' OR email like '%outlook%';
+    
+# brojot na studenti po ime
+
+select distinct name from studenti;
+
+select count(name) from studenti;
+
+#GROUP BY
+
+SELECT distinct name, count(name)
+FROM studenti
+GROUP BY name;
+
+#ORDER BY
+SELECT distinct name, count(name) as broj
+FROM studenti
+GROUP BY name
+ORDER BY broj;
+
+
+#daj mi go rekordot so najgolm broj na povtoricki iminja i koj e toj
+
+SELECT distinct name, count(name) as broj
+FROM studenti
+GROUP BY name
+ORDER BY broj desc
+limit 1;
+
+
+#INSERT
+
+INSERT INTO table_name ( col1, col2 , col3 )
+VALUES ( val1 , val2, val3 );
+
+INSERT INTO studenti ( id, name, lastname, age, email, phone )
+VALUES ( 9, 'Viktor', 'Gavrilovikj', 19, 'v.g@protonmail.com', '071111111');
+
+#UPDATE
+
+UPDATE studenti 
+SET age = 20 , phone = '072111111'
+WHERE id = 8;
+
+select * from studenti;
+
+# DELETE
+
+DELETE FROM studenti
+WHERE id = 9;
